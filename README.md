@@ -9,7 +9,7 @@ mnzipcode is a simple library for querying Mongolian zip codes.
 
 # Example Usage:
 ```js
-const mnzipcode = require('./index.js')
+const mnzipcode = require('mnzipcode')
 
 console.log(mnzipcode.matchingByZipcode(11000));
 
