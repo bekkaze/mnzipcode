@@ -1,22 +1,99 @@
 {
   "name": "mnzipcode",
-  "version": "1.1.0",
-  "description": "mnzipcode is a simple library for querying Mongolian zip codes.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Mongolian address and zipcode intelligence toolkit — offline lookup, search, OSM geocoding, and hybrid resolver",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react.d.ts",
+        "default": "./dist/react.js"
+      },
+      "require": {
+        "types": "./dist/react.d.cts",
+        "default": "./dist/react.cjs"
+      }
+    },
+    "./map": {
+      "import": {
+        "types": "./dist/map.d.ts",
+        "default": "./dist/map.js"
+      },
+      "require": {
+        "types": "./dist/map.d.cts",
+        "default": "./dist/map.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bekkaze/mnzipcode.git"
   },
   "keywords": [
-    "mnzipcode"
+    "mnzipcode",
+    "mongolia",
+    "zipcode",
+    "postal",
+    "geocoding",
+    "address",
+    "nominatim",
+    "osm"
   ],
   "author": "bekkaze",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bekkaze/mnzipcode/issues"
   },
-  "homepage": "https://github.com/bekkaze/mnzipcode#readme"
+  "homepage": "https://github.com/bekkaze/mnzipcode#readme",
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "leaflet": ">=1.9.0",
+    "react-leaflet": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "leaflet": {
+      "optional": true
+    },
+    "react-leaflet": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@types/leaflet": "^1.9.21",
+    "@types/react": "^18.0.0",
+    "leaflet": "^1.9.4",
+    "react": "^18.0.0",
+    "react-leaflet": "^4.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
 }
